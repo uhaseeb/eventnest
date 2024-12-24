@@ -1,0 +1,50 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:14
+    container_name: eventnest-db
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - project_postgres_data:/var/lib/postgres/data
+
+  backend:
+    image: eventnest-backend
+    container_name: eventnest-backend
+    command: bash -c "python manage.py runserver 0.0.0.0:8000"
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  
+  frontend:
+    image: eventnest-frontend
+    container_name: eventnest-frontend
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/frontend-app  
+    environment:
+      - NODE_ENV=development
+    stdin_open: true
+    tty: true
+
+volumes:
+  project_postgres_data:
+
+    
