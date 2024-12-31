@@ -1,7 +1,6 @@
 import React from 'react'
 import { PieChart } from '@mui/x-charts/PieChart';
-import '../css/Dashboard.css';
-
+import '../css/DashboardCharts.css';
 
 export default function DashBoardPieChart(props) {
     return (

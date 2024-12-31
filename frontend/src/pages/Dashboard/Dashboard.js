@@ -1,8 +1,8 @@
 import React from 'react'
-import DashboardBarChart from '../components/DashboardBarChart';
-import DashBoardPieChart from '../components/DashBoardPieChart';
-import DashboardCard from '../components/DashboardCard/DashboardCard';
-import '../css/Dashboard.css';
+import DashboardBarChart from '../../components/DashboardBarChart';
+import DashBoardPieChart from '../../components/DashBoardPieChart';
+import DashboardCard from '../../components/DashboardCard/DashboardCard';
+import './Dashboard.css';
 
 
 export default function Dashboard() {

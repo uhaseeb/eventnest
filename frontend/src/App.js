@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import { userContext, alertContext } from './context/context'
 import './App.css';
 import {
@@ -17,7 +16,7 @@ import UpdateEventPage from './pages/UpdateEventPage';
 import UpdateProfilePage from './pages/UpdateProfilePage';
 import { useState } from 'react';
 import AlertComponent from './components/AlertComponent';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 
 function App() {

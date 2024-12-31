@@ -1,6 +1,6 @@
 import React from 'react'
 import { BarChart } from '@mui/x-charts/BarChart';
-import '../css/Dashboard.css';
+import '../css/DashboardCharts.css';
 
 
 export default function DashboardBarChart(props) {
