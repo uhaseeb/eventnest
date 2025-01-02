@@ -29,20 +29,20 @@ services:
     depends_on:
       - db
   
-  # frontend:
-  #   image: eventnest-frontend
-  #   container_name: eventnest-frontend
-  #   build: 
-  #     context: ./frontend
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "3000:3000"
-  #   volumes:
-  #     - ./frontend:/frontend-app  
-  #   environment:
-  #     - NODE_ENV=development
-  #   stdin_open: true
-  #   tty: true
+  frontend:
+    image: eventnest-frontend
+    container_name: eventnest-frontend
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/frontend-app  
+    environment:
+      - NODE_ENV=development
+    stdin_open: true
+    tty: true
 
 volumes:
   project_postgres_data:
