@@ -40,7 +40,10 @@ DEFAULT_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_PARTY_APPS = ['rest_framework_simplejwt', ]
+THIRD_PARTY_APPS = [
+    'rest_framework',
+    'rest_framework_simplejwt',
+]
 
 CUSTOM_APPS = ['users', ]
 
@@ -117,17 +120,17 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
     ],
-    "DEFAULT_FILTER_BACKENDS": [
-        "django_filters.rest_framework.DjangoFilterBackend",
-        "rest_framework.filters.SearchFilter",
-        "rest_framework.filters.OrderingFilter",
-    ],
-    "DEFAULT_PAGINATION_CLASS": "core.paginations.PageNumberPagination",
+    # "DEFAULT_FILTER_BACKENDS": [
+    #     "django_filters.rest_framework.DjangoFilterBackend",
+    #     "rest_framework.filters.SearchFilter",
+    #     "rest_framework.filters.OrderingFilter",
+    # ],
+    # "DEFAULT_PAGINATION_CLASS": "core.paginations.PageNumberPagination",
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(seconds=int(os.getenv('ACCESS_TOKEN_LIFETIME'))),
-    "REFRESH_TOKEN_LIFETIME": timedelta(seconds=int(os.getenv('REFRESH_TOKEN_LIFETIME'))),
+    "ACCESS_TOKEN_LIFETIME": timedelta(seconds=int(100000)),
+    "REFRESH_TOKEN_LIFETIME": timedelta(seconds=int(500000)),
 }
 
 # Internationalization
