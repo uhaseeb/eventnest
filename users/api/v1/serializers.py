@@ -55,4 +55,3 @@ class UserProfileSerializer(serializers.ModelSerializer):
             "city",
             "country"
         )
-        

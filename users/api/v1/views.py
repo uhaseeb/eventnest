@@ -50,4 +50,3 @@ class UserProfileAPIView(RetrieveAPIView):
     
     def get_object(self):
         return self.request.user
-    
