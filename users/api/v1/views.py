@@ -1,4 +1,4 @@
-from rest_framework.generics import CreateAPIView, RetrieveAPIView
+from rest_framework.generics import CreateAPIView, RetrieveUpdateAPIView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -6,10 +6,8 @@ from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth import get_user_model
-from django.shortcuts import get_object_or_404
 
-
-from users.api.v1.serializers import SignupSerializer, LoginSerializer, UserProfileSerializer
+from users.api.v1.serializers import SignupSerializer, LoginSerializer, UserProfileSerializer, UserProfileUpdateSerializer
 
 User = get_user_model()
 
@@ -45,8 +43,12 @@ class LoginAPIView(APIView):
             {"access_token": str(token.access_token), "refresh_token": str(token)}, status=status.HTTP_200_OK
         )
 
-class UserProfileAPIView(RetrieveAPIView):
-    serializer_class = UserProfileSerializer
+class UserProfileAPIView(RetrieveUpdateAPIView):
+    def get_serializer_class(self):
+        if self.request.method == "GET":  
+            return UserProfileSerializer
+        
+        return UserProfileUpdateSerializer
     
     def get_object(self):
         return self.request.user

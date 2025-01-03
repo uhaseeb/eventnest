@@ -43,9 +43,10 @@ DEFAULT_APPS = [
 THIRD_PARTY_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
+    'django_extensions',
 ]
 
-CUSTOM_APPS = ['users', ]
+CUSTOM_APPS = ['users', "events",]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
 
